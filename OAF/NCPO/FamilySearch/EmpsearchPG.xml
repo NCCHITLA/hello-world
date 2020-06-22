@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="searchRN" controllerClass="oracle.apps.ncpo.EmpSearch.webui.EmpsearchCO" amDefName="oracle.apps.ncpo.EmpSearch.server.EmpsearchAM" windowTitle="EmployeeSearch" title="Search Employee">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:messageComponentLayout id="SearchManualRN" columns="2">
+               <ui:contents>
+                  <oa:messageTextInput id="EMName" prompt="Name"/>
+                  <oa:messageTextInput id="EMDept" prompt="Dept Name"/>
+               </ui:contents>
+            </oa:messageComponentLayout>
+            <oa:rowLayout id="SearchButtonRN" hAlign="center">
+               <ui:contents>
+                  <oa:submitButton id="MSearch" text="Search" prompt="Search"/>
+               </ui:contents>
+            </oa:rowLayout>
+            <oa:spacer id="Spacer1" height="10"/>
+            <oa:table id="SearchVO1" width="100%">
+               <ui:contents>
+                  <oa:messageStyledText id="EMTName" dataType="VARCHAR2" prompt="Name" viewName="SearchVO1" viewAttr="Name" maximumLength="100"/>
+                  <oa:messageStyledText id="Salary1" dataType="NUMBER" prompt="Salary" viewName="SearchVO1" viewAttr="Salary"/>
+                  <oa:messageStyledText id="Dept1" dataType="VARCHAR2" prompt="Dept" viewName="SearchVO1" viewAttr="Dept" maximumLength="100"/>
+                  <oa:image id="UpdayeAction" source="updateicon_enabled.gif">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="updateFA">
+                           <ui:parameters>
+                              <ui:parameter key="PName" value="${oa.SearchVO1.Name}"/>
+                              <ui:parameter key="PDept" value="${oa.SearchVO1.Dept}"/>
+                           </ui:parameters>
+                        </ui:fireAction>
+                     </ui:primaryClientAction>
+                  </oa:image>
+               </ui:contents>
+            </oa:table>
+            <oa:query id="QueryRN" mode="resultsBasedSearch" dispSimple="true" dispCustomized="true" dispAdvanced="true" rendered="false">
+               <ui:contents>
+                  <oa:table id="ResultRN" width="100%">
+                     <ui:contents>
+                        <oa:messageStyledText id="EmpName" dataType="VARCHAR2" prompt="Name" viewName="EmpSearchEOVO1" viewAttr="Name" maximumLength="100" queryable="true" sortState="ascending" selectiveSearchCriteria="true"/>
+                        <oa:messageStyledText id="Dept" dataType="VARCHAR2" prompt="Dept" viewName="EmpSearchEOVO1" viewAttr="Dept" maximumLength="100" queryable="true" selectiveSearchCriteria="true"/>
+                        <oa:messageStyledText id="Salary" dataType="NUMBER" prompt="Salary" viewName="EmpSearchEOVO1" viewAttr="Salary"/>
+                     </ui:contents>
+                  </oa:table>
+               </ui:contents>
+            </oa:query>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>
