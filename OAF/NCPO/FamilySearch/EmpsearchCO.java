@@ -37,7 +37,7 @@ public class EmpsearchCO extends OAControllerImpl
       OAViewObject empVO=(OAViewObject)am1.findViewObject("SearchVO1");
       //empVO.setWhereClauseParams(null);
       //empVO.setWhereClauseParam(0,null);
-      //empVO.setWhereClauseParam(1,null);
+      empVO.setWhereClauseParam(1,null);
       empVO.executeQuery();
   }
 
